@@ -28,6 +28,9 @@
       }).state('bigness', {
         url: '/project/bigness',
         templateUrl: "templates/projects/bigness.html"
+      }).state('experimentations', {
+        url: '/project/experimentations',
+        templateUrl: "templates/projects/experimentations.html"
       });
       return $urlRouterProvider.otherwise("/");
     }
@@ -90,6 +93,10 @@
             name: 'Bigness',
             route: 'bigness',
             icon: 'images/icons/bigness.svg'
+          }, {
+            name: 'Experimentations',
+            route: 'experimentations',
+            icon: 'images/icons/sliders.svg'
           }
         ];
       };
