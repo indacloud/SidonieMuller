@@ -1,4 +1,4 @@
-App = angular.module('App', ['ui.router', 'ngAnimate', 'ngTouch', 'ui.bootstrap'])
+App = angular.module('App', ['ui.router', 'ngTouch', 'ui.bootstrap'])
 
 App.config ['$stateProvider', '$urlRouterProvider', '$locationProvider', ($stateProvider, $urlRouterProvider, $locationProvider)->
 
