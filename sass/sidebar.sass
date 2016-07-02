@@ -1,0 +1,82 @@
+#main-sidebar
+  header
+    &>a
+      display: inline-block
+      vertical-align: top
+      &:hover, &:active
+        text-decoration: none
+  .toggle-sidebar
+    display: inline-block
+    margin: 5px 10px
+    height: 30px
+    width: 30px
+    border: 1px solid $dark
+    border-radius: 5px
+    padding: 1px 3px
+    background: $dark
+    box-sizing: border-box
+    cursor: pointer
+    .bar
+      display: block
+      background: white
+      border: 1px solid $dark
+      height: 4px
+      border-radius: 4px
+      margin: 3px 0
+      &:nth-child(2)
+        width: 60%
+      &:nth-child(3)
+        width: 70%
+  .expand-sidebar
+    display: none
+    cursor: pointer
+  header
+    h2
+      font-size: 1.4em
+      margin: 6px 0
+      span
+        font-size: 0.5em
+
+  .icon
+    font-size: 1.4em
+    width: 50px
+    padding: 0 5px
+    text-align: center
+    display: inline-block
+  nav
+    ul
+      list-style: none
+      margin: 0
+      padding: 0
+      li
+        width: 100%
+        a
+          display: block
+          padding: 10px 15px 10px 0
+          transition: background 0.2s ease-in-out
+          &:hover,
+          &:active,
+          &.active
+            text-decoration: none
+            background: $background
+
+
+
+  @media all and ($large-bp)
+    background: white
+    position: relative
+    .toggle-sidebar
+      display: none
+    header
+      a
+        display: block
+        .icon
+          margin: 36px 0 26px
+        h2
+          padding: 35px 0px 15px
+          text-align: center
+    .expand-sidebar
+      display: block
+      position: absolute
+      bottom: 30px
+

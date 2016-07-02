@@ -1,0 +1,102 @@
+!!!
+%html(ng-app="App")
+  %head
+    %title Sidonie Muller - Architect
+    %base( href="/" )
+    %meta( charset="UTF-8" )
+    %meta( name="description" content="Profolio, resume, projects." )
+    %meta( name="author" content="Sidonie Muller" )
+    %meta( name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0")
+
+    %meta( property="og:title" content="Sidonie Muller - Architect" )
+    %meta( property="og:type" content="website" )
+    %meta( property="og:url" content="http://sidoniemuller.com/" )
+    %meta( property="og:image" content="http://sidoniemuller.com/images/high-corridor/high-corridor-home-small.jpg" )
+
+    %link( rel="apple-touch-icon-precomposed" sizes="57x57" href="images/favicon/apple-touch-icon-57x57.png" )
+    %link( rel="apple-touch-icon-precomposed" sizes="114x114" href="images/favicon/apple-touch-icon-114x114.png" )
+    %link( rel="apple-touch-icon-precomposed" sizes="72x72" href="images/favicon/apple-touch-icon-72x72.png" )
+    %link( rel="apple-touch-icon-precomposed" sizes="144x144" href="images/favicon/apple-touch-icon-144x144.png" )
+    %link( rel="apple-touch-icon-precomposed" sizes="120x120" href="images/favicon/apple-touch-icon-120x120.png" )
+    %link( rel="apple-touch-icon-precomposed" sizes="152x152" href="images/favicon/apple-touch-icon-152x152.png" )
+    %link( rel="icon" type="image/png" href="images/favicon/favicon-32x32.png" sizes="32x32" )
+    %link( rel="icon" type="image/png" href="images/favicon/favicon-16x16.png" sizes="16x16" )
+    %meta( name="application-name" content="&nbsp;")
+    %meta( name="msapplication-TileColor" content="#FFFFFF" )
+    %meta( name="msapplication-TileImage" content="mstile-144x144.png" )
+
+
+    %link( rel="stylesheet" href="bower_components/normalize.css/normalize.css" type="text/css" media="all")
+    %link( rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" media="all")
+    %link( rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" type="text/css" media="all")
+
+    %link( rel="stylesheet" href="css/style.css" type="text/css" media="all")
+    :javascript
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-8173894-6', 'auto');
+
+  %body( ng-controller="App.Controller.Main" ng-class="{'sidebar-open': sidebarOpen}" ng-swipe-left="closeSidebar()" ng-swipe-right="openSidebar()" )
+    %div( scroll-top )
+
+    %aside#main-sidebar
+      %header
+        %a.toggle-sidebar( type="button" ng-click="toggleSidebar()" )
+          %span.bar
+          %span.bar
+          %span.bar
+        %a( ui-sref="home" )
+          %span.icon( ng-show="!sidebarOpen && isLargeWindow()" )
+            %i.fa.fa-home
+          %h2( ng-show="sidebarOpen || !isLargeWindow()" )
+            Sidonie Muller
+            %span Architect
+      %nav(role="navigation")
+        %ul
+          %li( ng-repeat="project in projects" )
+            %a( ui-sref="{{project.route}}" ui-sref-active="active" )
+              %span.icon
+                %img( ng-src="{{ project.icon }}" )
+              %span( ng-show="sidebarOpen" ) {{ project.name }}
+          %li
+            %a( ui-sref="resume" ui-sref-active="active" )
+              %span.icon
+                %i.fa.fa-graduation-cap
+              %span( ng-show="sidebarOpen" ) Resume
+        %footer
+          %ul
+            %li
+              %a( ui-sref="contact" )
+                %span.icon
+                  %i.fa.fa-envelope
+                %span( ng-show="sidebarOpen" ) Contact
+            %li
+              %a( href="http://linkedin.com/pub/sidonie-muller/92/439/246" target="_blank" )
+                %span.icon
+                  %i.fa.fa-linkedin
+                %span( ng-show="sidebarOpen" ) LinkedIn
+      .expand-sidebar
+        %span.icon
+          %i.fa( ng-class="{'fa-chevron-left': sidebarOpen, 'fa-chevron-right': !sidebarOpen}" ng-click="toggleSidebar()" tooltip="{{collapseText}}" tooltip-placement="right" tooltip-append-to-body="true" )
+
+    %div(role='main')
+      %div( ui-view autoscroll="true" )
+
+      %footer( role="contentinfo" )
+        .small
+          &copy; 2015 Sidonie Muller - all rights reserved
+
+    / scripts
+    %script( type="text/javascript" src="bower_components/jquery/dist/jquery.min.js" )
+    %script( type="text/javascript" src="bower_components/angular/angular.min.js" )
+    %script( type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js" )
+    %script( type="text/javascript" src="bower_components/angular-touch/angular-touch.min.js" )
+    %script( type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap.min.js" )
+    %script( type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js" )
+    %script( type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js" ))
+
+
+    %script( type="text/javascript" src="js/application.js" )
+

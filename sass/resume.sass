@@ -1,0 +1,57 @@
+.resume
+  section
+    padding: 10px
+    margin-bottom: 20px
+    h2
+      font-size: 1.4em
+      text-transform: uppercase
+    &>ul
+      list-style: none
+      margin: 0
+      padding: 0
+      display: table
+      width: 100%
+      &>li
+        display: table-row
+        &>div
+          display: table-cell
+        .content
+          .title
+            font-weight: 400
+          .detail
+            font-size: 0.9em
+            margin-bottom: 20px
+            &>.title
+              margin-left: 20px
+            ul.work
+              li
+                font-weight: 1.1em
+                .detail
+                  margin-bottom: 5px
+          p
+            margin: 0
+
+        .date
+          width: 70px
+          text-align: right
+  @media all and ($large-bp)
+    section
+      padding: 10px 30px
+      display: flex
+      flex-direction: row
+      align-items: flex-start
+      flex-wrap: wrap
+      h2
+        flex: 0 1 250px
+        margin-top: 0
+      &>ul
+        flex: 1 0 auto
+        width: auto
+        display: block
+        &>li
+          display: table
+          width: 100%
+          &>div
+            display: table-cell
+          .date
+            width: 150px
